@@ -1,6 +1,10 @@
 import _ from 'lodash';
 import jsonPlaceholder from '../apis/jsonPlaceholder';
 
+export const fetchPostsAndUsers = () => async (dispatch, getState) => {
+  await dispatch(fetchPosts());
+};
+
 // export const fetchPosts = () => {
 //   return async (dispatch) => {
 //     const response = await jsonPlaceholder.get('/posts');
@@ -8,7 +12,6 @@ import jsonPlaceholder from '../apis/jsonPlaceholder';
 //     dispatch({ type: 'FETCH_POSTS', payload: response, })
 //   };
 // };
-
 
 export const fetchPosts = () => async (dispatch) => {
   const response = await jsonPlaceholder.get('/posts');
